@@ -35,10 +35,6 @@ func LzFloat32(s string) (float32, error) {
 	return float32(v), err
 }
 
-// Backward-compatible aliases.
-func StringToFloat64(s string) (float64, error) { return LzFloat64(s) }
-func StringToFloat32(s string) (float32, error) { return LzFloat32(s) }
-
 func parseFloat64(s string) (float64, error) {
 	v := trimSpace(s)
 	if v == "" {
@@ -159,7 +155,6 @@ func pow10(exp int) float64 {
 		if exp <= maxPow10Pos {
 			return pow10Pos[exp]
 		}
-		// For completeness; parse already bounds-checks exp.
 		return pow10Pos[maxPow10Pos] * pow10(exp-maxPow10Pos)
 	}
 	ne := -exp
