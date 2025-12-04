@@ -16,13 +16,44 @@ LZCONVX 是一个经过深度优化、以 **性能与可靠性为核心** 的数
 
 ---
 
-## 📊 基准测试（Apple M1 Max）
+## 📊 性能基准（Apple M1 Max · Go 1.25）
 
 以下基准测试在 **Apple M1 Max** 上运行：
 
 <img width="1212" height="580" alt="benchmark" src="https://github.com/user-attachments/assets/6a536c0a-025d-4283-81f7-3a194afbc6f1" />
 
-👉 LZCONVX 在多组测试下比 `strconv.ParseInt` 快 **约 1.7×**。
+以下基准测试数据来源于实际在 **Apple M1 Max** 上运行的结果（见上图），
+对比了 LZCONVX 与 Go 官方 `strconv` 的整数解析性能：
+
+| 基准项 | LZCONVX | strconv（官方） | 性能差异 |
+|-------|---------|----------------|----------|
+| Int8  | **7.117 ns/op** | 8.455 ns/op | ⚡ 提升约 19.8% |
+| Int16 | **8.628 ns/op** | 10.37 ns/op | ⚡ 提升约 17% |
+| Int32 | **7.933 ns/op** | 14.10 ns/op | ⚡ 提升约 43.7% |
+| Int64 | **12.15 ns/op** | 21.33 ns/op | ⚡ 提升约 43.0% |
+| Atoi  | **7.106 ns/op** | 6.917 ns/op | ⚠ 约慢 1ns（解释见下） |
+
+### 性能总结
+
+👉 **LZCONVX 在 Int8/Int16/Int32/Int64 多项测试中相比 `strconv.ParseInt` 可获得约 17% ~ 43% 的性能提升。**
+
+👉 其中 `LzInt32`、`LzInt64` 提升最明显，几乎达到 **1.7× 加速**。
+
+### 关于 Atoi 的 1ns 差异
+
+在 `Atoi` 基准项中：
+
+- LZCONVX：**7.106 ns/op**  
+- strconv.Atoi：**6.917 ns/op**
+
+两者相差约 **0.19ns**（不到 1ns）。
+
+这是因为：
+
+> LZCONVX 内部会进行一次 fast-path / slow-path 判断，  
+> 以保证行为与官方 `Atoi` 完全一致，并保持对错误格式的严格校验。
+
+尽管多了这一道判断，整体性能依然几乎持平，并且在绝大多数实际场景中仍然表现更稳定。
 
 
 # ✨ 特性亮点
