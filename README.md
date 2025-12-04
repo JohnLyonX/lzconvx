@@ -14,7 +14,6 @@ LZCONVX 是一个经过深度优化、以 **性能与可靠性为核心** 的数
 - 游戏服务器  
 - 性能敏感的底层组件  
 
----
 
 ## 📊 性能基准（Apple M1 Max · Go 1.25）
 
@@ -76,10 +75,9 @@ Fast-Path 下零分配、分支优化，使解析速度大幅提升。
 ### 📦 单文件即可使用
 可直接复制到任何项目，无需额外依赖。
 
----
+
 
 ## 🧰 支持的整数解析 API
-
 
 LzInt8
 LzInt16
@@ -95,7 +93,7 @@ LzAtoi
 	•	非数字字符 → ErrSyntax
 	•	无内存分配（Zero-Alloc Fast Path）
 
-🧮 浮点解析 API
+## 🧮 浮点解析 API
 
 LzFloat32
 LzFloat64
