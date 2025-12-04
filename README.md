@@ -190,4 +190,3 @@ Creator of LZCONVX
 GitHub: https://github.com/JohnLyonX
 
 如你有 Go 性能优化、编译器、解析器相关问题，欢迎交流！
-### 🔥 写 Go 官方提案草稿（Proposal Draft）
