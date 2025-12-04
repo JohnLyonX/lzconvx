@@ -1,7 +1,6 @@
 # 🚀 LZCONVX — 一个比官方 `strconv` 更高效、更快速的整数与浮点解析库
 
-
-
+[English Version](./README.md) | [中文文档](./README_CN.md)
 
 LZCONVX 是一个经过深度优化、以 **性能与可靠性为核心** 的数字解析库。  
 在保持与 Go 官方 `strconv` 行为完全一致的前提下，通过手写 Fast-Path、零分配（Zero-Alloc）、  
