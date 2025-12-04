@@ -146,6 +146,7 @@ lzconvx/
  ├── README.md
  ├── README_CN.md
  └── LICENSE
+ └── go.mod
 ```
 ## 🧭 Roadmap
 	•	添加无符号整型（uint32/uint64）
