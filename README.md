@@ -137,7 +137,7 @@ func main() {
 
 
 🧱 项目结构
-
+```bash
 lzconvx/
  ├── conv/
  │     ├── int.go        # 整型解析核心
@@ -149,6 +149,7 @@ lzconvx/
  ├── README.md
  ├── README_CN.md
  └── LICENSE
+```
 
 
 
