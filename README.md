@@ -80,7 +80,7 @@ Fast-Path 下零分配、分支优化，使解析速度大幅提升。
 
 # 🧰 支持的整数解析 API
 
-```go
+
 LzInt8
 LzInt16
 LzInt32
@@ -111,10 +111,9 @@ LzFloat64
 
 已广泛验证与官方 strconv.ParseFloat 行为一致。
 
-⸻
 
 🧪 使用示例
-
+```go
 package main
 
 import (
@@ -135,7 +134,7 @@ func main() {
 }
 
 
-⸻
+```sh
 
 🧱 项目结构
 
@@ -152,7 +151,8 @@ lzconvx/
  └── LICENSE
 
 
-⸻
+```
+
 
 🧭 Roadmap
 	•	添加无符号整型（uint32/uint64）
