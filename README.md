@@ -56,7 +56,7 @@ LZCONVX 是一个经过深度优化、以 **性能与可靠性为核心** 的数
 尽管多了这一道判断，整体性能依然几乎持平，并且在绝大多数实际场景中仍然表现更稳定。
 
 
-# ✨ 特性亮点
+## ✨ 特性亮点
 
 ### 🚀 超高性能（比官方快）
 Fast-Path 下零分配、分支优化，使解析速度大幅提升。
@@ -78,7 +78,7 @@ Fast-Path 下零分配、分支优化，使解析速度大幅提升。
 
 ---
 
-# 🧰 支持的整数解析 API
+## 🧰 支持的整数解析 API
 
 
 LzInt8
@@ -112,7 +112,7 @@ LzFloat64
 已广泛验证与官方 strconv.ParseFloat 行为一致。
 
 
-🧪 使用示例
+## 🧪 使用示例
 ```go
 package main
 
@@ -136,7 +136,7 @@ func main() {
 ```
 
 
-🧱 项目结构
+## 🧱 项目结构
 ```bash
 lzconvx/
  ├── conv/
@@ -150,11 +150,7 @@ lzconvx/
  ├── README_CN.md
  └── LICENSE
 ```
-
-
-
-
-🧭 Roadmap
+## 🧭 Roadmap
 	•	添加无符号整型（uint32/uint64）
 	•	添加更快的浮点 Fast-Path 优化
 	•	针对 amd64 添加 SSE/AVX 优化
@@ -162,9 +158,8 @@ lzconvx/
 	•	覆盖更多 fuzz 测试（与 strconv 行为对齐）
 	•	提交 Go 官方 Proposal（标准库 Fast-Path 优化）
 
-⸻
 
-🤝 参与贡献
+## 🤝 参与贡献
 
 欢迎提交：
 	•	Bug 报告
@@ -174,16 +169,13 @@ lzconvx/
 
 你的贡献将帮助我们进一步提升性能与兼容性。
 
-⸻
 
-📄 License
+## 📄 License
+LZCONVX is released under the MIT License.  
+Copyright © 2025 Liang Zhanbo.
 
-MIT License.
-可安全用于商业项目。
 
-⸻
-
-✨ 作者
+## ✨ 作者
 
 Liang Zhanbo（梁展波）
 Creator of LZCONVX
