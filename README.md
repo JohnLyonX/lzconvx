@@ -140,10 +140,9 @@ lzconvx/
  ├── conv/
  │     ├── int.go        # 整型解析核心
  │     ├── float.go      # 浮点解析核心
- │     ├── trim.go       # 空白处理
- │     ├── errors.go     # ErrSyntax / ErrRange
- │     ├── fast.go       # Fast-Path 逻辑
- │     ├── bench_test.go # Benchmark
+ ├── conv_test/
+ │     ├── official_or_lzconv_float_test.go        # 官方与Lzconvx浮点数基准测试
+ │     ├── official_or_lzconv_test.go      # 官方与Lzconvx整数数基准测试
  ├── README.md
  ├── README_CN.md
  └── LICENSE
