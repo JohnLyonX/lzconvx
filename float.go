@@ -1,4 +1,4 @@
-package conv
+package lzconvx
 
 const (
 	maxFloat64Exp = 308
@@ -34,10 +34,6 @@ func LzFloat32(s string) (float32, error) {
 	v, err := parseFloat64(s)
 	return float32(v), err
 }
-
-// Backward-compatible aliases.
-func StringToFloat64(s string) (float64, error) { return LzFloat64(s) }
-func StringToFloat32(s string) (float32, error) { return LzFloat32(s) }
 
 func parseFloat64(s string) (float64, error) {
 	v := trimSpace(s)

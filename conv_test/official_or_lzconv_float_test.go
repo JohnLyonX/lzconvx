@@ -1,9 +1,10 @@
 package convtest
 
 import (
-	"liangzhanbo/lzconvx/conv"
 	"strconv"
 	"testing"
+
+	"github.com/JohnLyonX/lzconvx"
 )
 
 // --- 测试用例组 ---
@@ -20,7 +21,7 @@ var (
 
 func BenchmarkLzFloat64_Small(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzFloat64(smallFloat)
+		_, _ = lzconvx.LzFloat64(smallFloat)
 	}
 }
 
@@ -32,7 +33,7 @@ func BenchmarkStdFloat64_Small(b *testing.B) {
 
 func BenchmarkLzFloat64_Sci(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzFloat64(sciFloat1)
+		_, _ = lzconvx.LzFloat64(sciFloat1)
 	}
 }
 
@@ -44,7 +45,7 @@ func BenchmarkStdFloat64_Sci(b *testing.B) {
 
 func BenchmarkLzFloat64_NegExp(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzFloat64(sciFloatNegExp)
+		_, _ = lzconvx.LzFloat64(sciFloatNegExp)
 	}
 }
 
@@ -56,7 +57,7 @@ func BenchmarkStdFloat64_NegExp(b *testing.B) {
 
 func BenchmarkLzFloat64_Large(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzFloat64(largeFloat)
+		_, _ = lzconvx.LzFloat64(largeFloat)
 	}
 }
 
@@ -70,7 +71,7 @@ func BenchmarkStdFloat64_Large(b *testing.B) {
 
 func BenchmarkLzFloat32_Small(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzFloat32(smallFloat)
+		_, _ = lzconvx.LzFloat32(smallFloat)
 	}
 }
 
@@ -82,7 +83,7 @@ func BenchmarkStdFloat32_Small(b *testing.B) {
 
 func BenchmarkLzFloat32_Sci(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzFloat32(sciFloat1)
+		_, _ = lzconvx.LzFloat32(sciFloat1)
 	}
 }
 

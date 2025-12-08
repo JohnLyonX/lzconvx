@@ -1,16 +1,17 @@
 package convtest
 
 import (
-	"liangzhanbo/lzconvx/conv"
 	"strconv"
 	"testing"
+
+	"github.com/JohnLyonX/lzconvx"
 )
 
 // ---------- int8 ------------
 
 func BenchmarkLzInt8(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzInt8("123")
+		_, _ = lzconvx.LzInt8("123")
 	}
 }
 
@@ -24,7 +25,7 @@ func BenchmarkStdInt8(b *testing.B) {
 
 func BenchmarkLzInt16(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzInt16("12345")
+		_, _ = lzconvx.LzInt16("12345")
 	}
 }
 
@@ -38,7 +39,7 @@ func BenchmarkStdInt16(b *testing.B) {
 
 func BenchmarkLzInt32(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzInt32("123456789")
+		_, _ = lzconvx.LzInt32("123456789")
 	}
 }
 
@@ -52,7 +53,7 @@ func BenchmarkStdInt32(b *testing.B) {
 
 func BenchmarkLzInt64(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzInt64("123456789012345")
+		_, _ = lzconvx.LzInt64("123456789012345")
 	}
 }
 
@@ -66,7 +67,7 @@ func BenchmarkStdInt64(b *testing.B) {
 
 func BenchmarkLzAtoi(b *testing.B) {
 	for i := 0; i < b.N; i++ {
-		_, _ = conv.LzAtoi("123456789")
+		_, _ = lzconvx.LzAtoi("123456789")
 	}
 }
 

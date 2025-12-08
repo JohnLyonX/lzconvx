@@ -1,4 +1,4 @@
-package conv
+package lzconvx
 
 type parseError string
 
@@ -142,17 +142,17 @@ func parseSignedInt(s string, bitSize int) (int64, error) {
 }
 
 // 对外接口
-func StringToInt8(s string) (int8, error) {
+func LzInt8(s string) (int8, error) {
 	v, err := parseSignedInt(s, 8)
 	return int8(v), err
 }
 
-func StringToInt16(s string) (int16, error) {
+func LzInt16(s string) (int16, error) {
 	v, err := parseSignedInt(s, 16)
 	return int16(v), err
 }
 
-func StringToInt32(s string) (int32, error) {
+func LzInt32(s string) (int32, error) {
 	if v, err, ok := fastParseInt(s, 32); ok {
 		return int32(v), err
 	}
@@ -160,14 +160,14 @@ func StringToInt32(s string) (int32, error) {
 	return int32(v), err
 }
 
-func StringToInt64(s string) (int64, error) {
+func LzInt64(s string) (int64, error) {
 	if v, err, ok := fastParseInt(s, 64); ok {
 		return v, err
 	}
 	return parseSignedInt(s, 64)
 }
 
-func StringToInt(s string) (int, error) {
+func LzAtoi(s string) (int, error) {
 	sLen := len(s)
 	if intSize == 32 && (0 < sLen && sLen < 10) ||
 		intSize == 64 && (0 < sLen && sLen < 19) {
