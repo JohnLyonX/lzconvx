@@ -155,7 +155,6 @@ func pow10(exp int) float64 {
 		if exp <= maxPow10Pos {
 			return pow10Pos[exp]
 		}
-		// For completeness; parse already bounds-checks exp.
 		return pow10Pos[maxPow10Pos] * pow10(exp-maxPow10Pos)
 	}
 	ne := -exp

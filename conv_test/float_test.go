@@ -3,7 +3,7 @@ package convtest
 import (
 	"testing"
 
-	"liangzhanbo/lzconvx/conv"
+	"github.com/JohnLyonX/lzconvx"
 )
 
 func TestStringToFloat64(t *testing.T) {
@@ -21,16 +21,16 @@ func TestStringToFloat64(t *testing.T) {
 		{"exp negative", "12e-1", 1.2, nil},
 		{"zero", "0", 0, nil},
 		{"negative zero", "-0.0", -0.0, nil},
-		{"double dot", "1.2.3", 0, conv.ErrSyntax},
-		{"bad char", "1a2", 0, conv.ErrSyntax},
-		{"empty", "   ", 0, conv.ErrSyntax},
-		{"huge exp overflow", "1e309", 0, conv.ErrRange},
-		{"tiny exp underflow", "1e-400", 0, conv.ErrRange},
+		{"double dot", "1.2.3", 0, lzconvx.ErrSyntax},
+		{"bad char", "1a2", 0, lzconvx.ErrSyntax},
+		{"empty", "   ", 0, lzconvx.ErrSyntax},
+		{"huge exp overflow", "1e309", 0, lzconvx.ErrRange},
+		{"tiny exp underflow", "1e-400", 0, lzconvx.ErrRange},
 	}
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := conv.StringToFloat64(tt.input)
+			got, err := lzconvx.LzFloat64(tt.input)
 			if err != tt.wantErr {
 				t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 			}
@@ -50,13 +50,13 @@ func TestStringToFloat32(t *testing.T) {
 	}{
 		{"basic", "12.5", 12.5, nil},
 		{"exp", "7e1", 70, nil},
-		{"overflow", "1e309", 0, conv.ErrRange},
-		{"syntax", "abc", 0, conv.ErrSyntax},
+		{"overflow", "1e309", 0, lzconvx.ErrRange},
+		{"syntax", "abc", 0, lzconvx.ErrSyntax},
 	}
 
 	for _, tt := range cases {
 		t.Run(tt.name, func(t *testing.T) {
-			got, err := conv.StringToFloat32(tt.input)
+			got, err := lzconvx.LzInt32(tt.input)
 			if err != tt.wantErr {
 				t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 			}

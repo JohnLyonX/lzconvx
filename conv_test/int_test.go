@@ -3,7 +3,7 @@ package convtest
 import (
 	"testing"
 
-	"liangzhanbo/lzconvx/conv"
+	"github.com/JohnLyonX/lzconvx"
 )
 
 func TestStringToInt8(t *testing.T) {
@@ -14,14 +14,14 @@ func TestStringToInt8(t *testing.T) {
 	}{
 		{" 127 ", 127, nil},
 		{"-128", -128, nil},
-		{"128", 0, conv.ErrRange},
-		{"-129", 0, conv.ErrRange},
-		{"+", 0, conv.ErrSyntax},
-		{"12a", 0, conv.ErrSyntax},
-		{"   ", 0, conv.ErrSyntax},
+		{"128", 0, lzconvx.ErrRange},
+		{"-129", 0, lzconvx.ErrRange},
+		{"+", 0, lzconvx.ErrSyntax},
+		{"12a", 0, lzconvx.ErrSyntax},
+		{"   ", 0, lzconvx.ErrSyntax},
 	}
 	for _, tt := range cases {
-		got, err := conv.StringToInt8(tt.input)
+		got, err := lzconvx.LzInt8(tt.input)
 		if err != tt.wantErr {
 			t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 		}
@@ -39,12 +39,12 @@ func TestStringToInt16(t *testing.T) {
 	}{
 		{"32767", 32767, nil},
 		{"-32768", -32768, nil},
-		{"32768", 0, conv.ErrRange},
-		{"-32769", 0, conv.ErrRange},
-		{"1 2", 0, conv.ErrSyntax},
+		{"32768", 0, lzconvx.ErrRange},
+		{"-32769", 0, lzconvx.ErrRange},
+		{"1 2", 0, lzconvx.ErrSyntax},
 	}
 	for _, tt := range cases {
-		got, err := conv.StringToInt16(tt.input)
+		got, err := lzconvx.LzInt16(tt.input)
 		if err != tt.wantErr {
 			t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 		}
@@ -62,11 +62,11 @@ func TestStringToInt32(t *testing.T) {
 	}{
 		{"2147483647", 2147483647, nil},
 		{"-2147483648", -2147483648, nil},
-		{"2147483648", 0, conv.ErrRange},
-		{"-2147483649", 0, conv.ErrRange},
+		{"2147483648", 0, lzconvx.ErrRange},
+		{"-2147483649", 0, lzconvx.ErrRange},
 	}
 	for _, tt := range cases {
-		got, err := conv.StringToInt32(tt.input)
+		got, err := lzconvx.LzInt32(tt.input)
 		if err != tt.wantErr {
 			t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 		}
@@ -84,11 +84,11 @@ func TestStringToInt64(t *testing.T) {
 	}{
 		{"9223372036854775807", 9223372036854775807, nil},
 		{"-9223372036854775808", -9223372036854775808, nil},
-		{"9223372036854775808", 0, conv.ErrRange},
-		{"-9223372036854775809", 0, conv.ErrRange},
+		{"9223372036854775808", 0, lzconvx.ErrRange},
+		{"-9223372036854775809", 0, lzconvx.ErrRange},
 	}
 	for _, tt := range cases {
-		got, err := conv.StringToInt64(tt.input)
+		got, err := lzconvx.LzInt64(tt.input)
 		if err != tt.wantErr {
 			t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 		}
@@ -120,12 +120,12 @@ func TestStringToInt(t *testing.T) {
 		{" 42 ", 42, nil},
 		{maxStr, intFromString(maxStr, is64), nil},
 		{minStr, intFromString(minStr, is64), nil},
-		{overflowStr, 0, conv.ErrRange},
-		{"-999999999999999999999", 0, conv.ErrRange},
-		{"abc", 0, conv.ErrSyntax},
+		{overflowStr, 0, lzconvx.ErrRange},
+		{"-999999999999999999999", 0, lzconvx.ErrRange},
+		{"abc", 0, lzconvx.ErrSyntax},
 	}
 	for _, tt := range cases {
-		got, err := conv.StringToInt(tt.input)
+		got, err := lzconvx.LzAtoi(tt.input)
 		if err != tt.wantErr {
 			t.Fatalf("input %q: want err %v, got %v", tt.input, tt.wantErr, err)
 		}
